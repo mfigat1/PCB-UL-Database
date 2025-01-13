@@ -1,0 +1,13 @@
+.idea
+venv
+LICENSE
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+DYN*.xlsx
+.ipynb_checkpoints
+
+
+
+
