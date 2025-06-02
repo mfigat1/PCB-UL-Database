@@ -9,5 +9,6 @@ ULverificationChoices = [
 ]
 
 ULRejectedToCheckExportFilePattern = "Rejected UL numbers to check.xlsx"
+qualityControlOrderFileSortedBy = "Last delivery"
 
 ULRejectedHowFarToCheck = 365

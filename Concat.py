@@ -65,6 +65,9 @@ def quality_control_order_file_loader_and_merger(ULbase):
                                                      ConcatConstantsVariables.ULverificationChoices,
                                                      default="Unknown Status")
 
+    qualityControlOrderFile = qualityControlOrderFile.sort_values(
+        by=ConcatConstantsVariables.qualityControlOrderFileSortedBy, ascending=False)
+
     qualityControlOrderFile.to_excel(ConcatConstantsVariables.exportFilePattern, index=False)
     return qualityControlOrderFile
 
@@ -76,7 +79,7 @@ def UL_rejected_file_exporter(qualityControlOrderFile):
     onlyLastTime = qualityControlOrderFile["Last delivery"] >= time
 
     ULRejectedToCheck = pd.DataFrame(
-        qualityControlOrderFile[problematicULStatus & onlyLastTime][['UL', "Last delivery"]]).drop_duplicates(
+        qualityControlOrderFile[problematicULStatus & onlyLastTime][['Indeks','UL', "Last delivery"]]).drop_duplicates(
         subset='UL').reset_index(drop=True)
     ULRejectedToCheck.to_excel(ConcatConstantsVariables.ULRejectedToCheckExportFilePattern, index=False)
 
